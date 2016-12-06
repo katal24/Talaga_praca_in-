@@ -1,24 +1,25 @@
-# Talaga_praca_inż
+# PairwiseComparisons library
 
-### Repozytorium zawiera:
-* Plik w języku R - odpowiedzialny za obliczenia.
-* Bibliotekę .jar
-* Kod źródłowy biblioteki w języku Java
-* Prosty projekt w Javie, który obrazuje działanie biblioteki.
+### The repository contains:
+* R file - responsible for computes
+* .jar library
+* Java source code of the library
+* Example project in Java, which shows the use of the library
 
-### Aby użyć bibliotekę PairwiseComparisons w swoim projekcie należy:
-1. Zainstalować pakiet R (http://cran.us.r-project.org/)
-2. W folderze głównym projektu umieścić plik pairwiseComparisons.R
-3. Załączyć bibliotekę PairwiseComparisons.jar
-4. Importować klasę z biblioteki: import main.out.pl.edu.agh.talaga.PairwiseComparisons;
-5. Utworzyć nowy obiekt klasy i zacząć wywoływać metody.
+### In order to use PairwiseComparisons library in own project need to:
+1. Install R package (http://cran.us.r-project.org/)
+2. Download pairwiseComparisons.R file.t
+3. Add PairwiseComparisons.jar to project build path.
+4. Import class _main.out.pl.edu.agh.talaga.PairwiseComparisons_.
+5. Create new object PairwiseComparisons. You can give the path to pairwiseComparisons.R file as parameter in constructor or place it in the main project folder.
+6. Call methods.
 
-### Pomocne informacje do współpracy z biblioteką.
-1. Biblioteka (a raczej RCallerScriptEngine, który wywołuje metody z R) może pracować w trybie "ciągłym" (jedno trwałe połączenie z silnikiem R) lub "jednorazowym" (otwiera i zamyka połączenie z silnikiem R dla każdej fukncji). 
-Tryb "ciągły" wywołuje kolejne metody szybciej, należy jednak pamiętać o obciążeniu procesora oraz o tym, żeby na końcu aplikacji samodzielnie zamnkąć silnik.
+### Additional information to help you use the library:
+1. Library can work in continous mode (one permanent connection) or disposable mode (one connection for every function call).
+Contionus mode works faster with greater number of function calls, but you be should close connection when it will no longer be used.
 
-2. Konstruktor domyślny otwiera powoduje, że silnik pracuje w trybie jednorazowym. Aby to zmienić można wywołać konstruktor z parametrem false: new PairwiseComparisons(true).
+2. Default constructor switch continous mode. In order to change mode, you should call constructor with parameter false: ``new PairwiseComparisons(false)``.
 
-3. Funkcja seetKeepOpenConnection(boolean) służy do określania trybu pracy sinika, przekazywana do niej wartość decyduje, czy pracujemy w trybie "ciągłym", czy "jednorazowym". Można ją wywoływać wielokrotnie w czasie działania aplikacji.
+3. Function ``seetKeepOpenConnection(boolean)`` is also used for determining the mode library. It can be called many times during the runtime.
 
-3. Można również ręcznie otwierać i zamykać połączenie poprzez metody open() i close().
+4. Functions _open_ and _close_ allow open/close connection manually.
