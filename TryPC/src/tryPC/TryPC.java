@@ -1,6 +1,6 @@
 package tryPC;
 
-import main.out.pl.edu.agh.talaga.PairwiseComparisons;
+import pl.edu.agh.talaga.PairwiseComparisons;
 
 import java.util.Arrays;
 
@@ -17,6 +17,7 @@ public class TryPC {
                 {8d/5d, 2d/5d,  2d/7d,     1,     4d/3d },
                 {  2  , 3d/10d, 1d/4d,   3d/4d,     1   }
         };
+
         double[] mk = new double[]{0,5,7,0,0};
         int[] listToDelete = new int[]{1, 2, 3};
         double[] triad = new double[]{0.8, 3, 0.12};
@@ -24,7 +25,7 @@ public class TryPC {
         double[] listToAij1 = new double[]{1, 2, 3};
         double[] listToAij2 = new double[]{4,5,6};
 
-        PairwiseComparisons pairwiseComparisons = new PairwiseComparisons(true);
+        PairwiseComparisons pairwiseComparisons = new PairwiseComparisons("pairwiseComparisons.R", true);
 
         System.out.println("\n principalEigenValue: \n" + pairwiseComparisons.principalEigenValue(matrix));
         System.out.println("\n principalEigenValueSym: \n" + pairwiseComparisons.principalEigenValueSym(matrix));
@@ -47,7 +48,7 @@ public class TryPC {
         System.out.println("\n deleteRowsAndColumns: \n" + Arrays.deepToString(pairwiseComparisons.deleteRowsAndColumns(matrix,listToDelete)));
         System.out.println("\n setDiagonal: \n" + Arrays.deepToString(pairwiseComparisons.setDiagonal(matrix,10)));
 
-        System.out.println("\n HREmatrix: \n" + Arrays.deepToString(pairwiseComparisons.HREmatrix(matrix,mk)));
+        System.out.println("\n HREmatrix: \n" + Arrays.deepToString(pairwiseComparisons.HREmatrix(matrix, mk)));
         System.out.println("\n HREconstantTermVector: \n" + Arrays.toString(pairwiseComparisons.HREconstantTermVector(matrix,mk)));
         System.out.println("\n HREpartialRank: \n" + Arrays.toString(pairwiseComparisons.HREpartialRank(matrix,mk)));
         System.out.println("\n HREfullRank: \n" + Arrays.toString(pairwiseComparisons.HREfullRank(matrix,mk)));
@@ -74,7 +75,7 @@ public class TryPC {
 
         double[] mu = pairwiseComparisons.HREgeomRescaledRank(matrix, mk);
         System.out.println("\n cop1Check: \n" + pairwiseComparisons.cop1Check(matrix,mu));
-        System.out.println("\n cop1ViolationList: \n" + Arrays.deepToString(pairwiseComparisons.cop1ViolationList(matrix, mu)));
+        System.out.println("\n cop1ViolationList: \n" + Arrays.deepToString(pairwiseComparisons.cop1ViolationList(matrix,mu)));
         System.out.println("\n cop2Check: \n" + pairwiseComparisons.cop2Check(matrix, mu));
         System.out.println("\n cop2ViolationList: \n" + Arrays.deepToString(pairwiseComparisons.cop2ViolationList(matrix, mu)));
 
@@ -89,15 +90,14 @@ public class TryPC {
         System.out.println("\n consistentMatrixFromRank: \n" + Arrays.deepToString(pairwiseComparisons.consistentMatrixFromRank(new double[]{1,2,3,4})));
         System.out.println("\n rankOrder: \n" + Arrays.toString(pairwiseComparisons.rankOrder(list)));
 
-        pairwiseComparisons.setKeepOpenConnection(true);       // ustawienie, żeby zamykał połączenie po każdej funckji
 
         System.out.println("\n AIJgeom: \n" + Arrays.deepToString(pairwiseComparisons.AIJgeom(matrix, matrix, matrix)));
+        System.out.println("\n AIJgeom: \n" + Arrays.toString(pairwiseComparisons.AIJgeom(listToAij1, listToAij2)));
         System.out.println("\n AIJadd: \n" + Arrays.deepToString(pairwiseComparisons.AIJadd(matrix, matrix, matrix)));
         System.out.println("\n AIJadd: \n" + Arrays.toString(pairwiseComparisons.AIJadd(listToAij1, listToAij2)));
 
-        pairwiseComparisons.setKeepOpenConnection(false);       // ustawienie, żeby zamykał połączenie po każdej funckji
 
-        System.out.println("\n AIJgeom: \n" + Arrays.toString(pairwiseComparisons.AIJgeom(listToAij1, listToAij2)));
+
 
     }
 }
