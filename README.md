@@ -1,7 +1,7 @@
 # PairwiseComparisons library
 
 ### The repository contains:
-* R file - responsible for computes
+* R file - responsible for computing
 * .jar library
 * Java source code of the library
 * Example project in Java, which shows the use of the library
@@ -21,11 +21,11 @@
 * ``PairwiseComparisons(String pathToSource, boolean keepOpenConnection)`` - set path to pairwiseComparisons.R and connection mode
 
 ### Additional information to help you use the library:
-1. Library can work in continous mode (one permanent connection) or disposable mode (one connection for every function call).
-Contionus mode works faster with greater number of function calls, but you be should close connection when it will no longer be used.
+1. Library can work in continous mode (one permanent connection) or disposable mode (one connection for every method call).
+Contionus mode works faster with greater number of function calls, but you be should close connection when it will no longer be used. You could remove PairwiseComparisons object or call ``close()`` method.
 
-2. Default constructor switch continous mode. In order to change mode, you should call constructor with parameter false: ``new PairwiseComparisons(false)`` or ``new PairwiseComparisons(pathToRfile, false)`` .
+2. Default constructor uses continous mode. In order to change mode, you should call constructor with parameter false: ``new PairwiseComparisons(false)`` or ``new PairwiseComparisons(pathToRfile, false)`` .
 
-3. Function ``seetKeepOpenConnection(boolean)`` is also used for determining the mode library. It can be called many times during the runtime.
+3. Function ``setKeepOpenConnection(boolean)`` is also used for determining the mode of the library. It can be called many times during the runtime.
 
-4. Functions _open_ and _close_ allow open/close connection manually.
+4. Functions _open_ and _close_ allow to open/close connection manually.
