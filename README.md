@@ -15,10 +15,10 @@
 6. Call methods.
 
 ### Available constructors:
-* PairwiseComparisons() - default: place pairwiseComparisons.R in main project folder, keep open connection
-* PairwiseComparisons(String pathToSource) - keep open connection
-* PairwiseComparisons(boolean keepOpenConnection) - default: place pairwiseComparisons.R in main project folder
-* PairwiseComparisons(String pathToSource, boolean keepOpenConnection)
+* ``PairwiseComparisons()`` - default: place pairwiseComparisons.R in main project folder, connection will be open
+* ``PairwiseComparisons(String pathToSource)`` - set path to pairwiseComparisons.R, connection will be open
+* ``PairwiseComparisons(boolean keepOpenConnection)`` - place pairwiseComparisons.R in main project folder and set connection mode
+* ``PairwiseComparisons(String pathToSource, boolean keepOpenConnection)`` - set path to pairwiseComparisons.R and connection mode
 
 ### Additional information to help you use the library:
 1. Library can work in continous mode (one permanent connection) or disposable mode (one connection for every function call).
